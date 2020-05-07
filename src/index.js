@@ -1,7 +1,7 @@
 import p5 from "p5";
 import Asteroids from "./objects/asteroids";
 const asteroids = new Asteroids();
-console.log(asteroids.gamarjoba());
+console.log(asteroids.player);
 const sketch = p5 => {
     p5.setup = () => {
         p5.createCanvas(400,400);
