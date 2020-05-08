@@ -2,15 +2,20 @@ const path = require('path');
 module.exports = {
     mode: "development",
     entry: './src/index.js',
-    devServer: {
-        port: 8080,
-        compress: true,
-    },
-    output: {
-        path: path.resolve(__dirname,'dist'),
-        filename: "index.js"
-    },
-    resolve: {
-        extensions: ['*', '.js', '.jsx', '.tsx', '.ts'],
-    },
-}
+    module: {
+    rules: [
+      {
+        test: /\.(js|jsx|tsx|ts)$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      }
+    ],
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx', '.tsx', '.ts'],
+  },
+  output: {
+    path: path.resolve(__dirname,'dist'),
+    filename: "index.js"
+},
+};
