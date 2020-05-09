@@ -1,24 +1,28 @@
 import p5 from "p5";
 import Ship from "./objects/ship";
-
-const sketch = p5 => {
-    var ship = new Ship(p5.PI);
-    p5.setup = () => {
-        p5.createCanvas(p5.windowWidth, p5.windowHeight);
+import KeyboardHelper from "./helper_methods/keyboardHelper";
+const sketch = (p) => {
+    var keyboardHelper = new KeyboardHelper();
+    var ship = new Ship(p,p5);
+    let button = [];
+    p.setup = () => {
+        p.createCanvas(p.windowWidth-5, p.windowHeight-5);
     };
 
-    p5.draw = () => {
-        p5.background(0);
+    p.draw = () => {
+        p.background(0);
         ship.render();
+        ship.turn();
+        keyboardHelper.keyPress(button,ship);
+        ship.update();
     };
-    // p5.keyPressed = () => {
-    //     if (p5.keyCode == p5.RIGHT_ARROW) {
-    //         ship.turn(0.1);
-    //     }
-    //     else if (p5.keyCode == p5.LEFT_ARROW){
-    //         ship.turn(-0.1);
-    //     }
-    // }
+    p.keyPressed = () => {
+        button[p.keyCode] = 1;
+    }
+    p.keyReleased = () => {
+        button[p.keyCode] = 0;
+        ship.setRotation(0);
+    }
 };
 let s = new p5(sketch);
 export default s;

@@ -19,15 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf792cb0-fd79-4668-9119-c0c922c80e8c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/asteroids.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/objects/ship.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="cf792cb0-fd79-4668-9119-c0c922c80e8c" name="Default Changelist" comment="Merge branch 'master' of https://github.com/Hydsoled/asteroids&#10;&#10;# Conflicts:&#10;#&#9;src/index.js&#10;#&#9;src/objects/asteroids.js">
+      <change afterPath="$PROJECT_DIR$/src/helper_methods/keyboardHelper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/objects/asteroids.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/ship.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ship.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +59,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/p5/p5" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -83,8 +79,17 @@
       <option name="presentableId" value="Default" />
       <updated>1588862114102</updated>
       <workItem from="1588862115369" duration="17034000" />
-      <workItem from="1588942762273" duration="10267000" />
+      <workItem from="1588942762273" duration="27136000" />
+      <workItem from="1589023000535" duration="8271000" />
     </task>
+    <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/Hydsoled/asteroids&#10;&#10;# Conflicts:&#10;#&#9;src/index.js&#10;#&#9;src/objects/asteroids.js">
+      <created>1588953705075</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1588953705075</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,6 +107,10 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge branch 'master' of https://github.com/Hydsoled/asteroids&#10;&#10;# Conflicts:&#10;#&#9;src/index.js&#10;#&#9;src/objects/asteroids.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/Hydsoled/asteroids&#10;&#10;# Conflicts:&#10;#&#9;src/index.js&#10;#&#9;src/objects/asteroids.js" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="484" y="232" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588862566417">
       <screen x="0" y="0" width="1440" height="860" />
@@ -111,9 +120,21 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="450" y="177" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.860@0.0.1440.860" timestamp="1588875157085" />
+    <state x="500" y="185" key="FileChooserDialogImpl" timestamp="1589026602002">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="500" y="185" key="FileChooserDialogImpl/0.0.1440.860@0.0.1440.860" timestamp="1589026602002" />
+    <state x="608" y="298" key="MultipleFileMergeDialog" timestamp="1588953641805">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="608" y="298" key="MultipleFileMergeDialog/0.0.1440.860@0.0.1440.860" timestamp="1588953641805" />
     <state x="92" y="92" width="1256" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1588869811182">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="92" y="92" width="1256" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1440.860@0.0.1440.860" timestamp="1588869811182" />
+    <state x="427" y="163" width="585" height="592" key="find.popup" timestamp="1589029128917">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="427" y="163" width="585" height="592" key="find.popup/0.0.1440.860@0.0.1440.860" timestamp="1589029128917" />
   </component>
 </project>
