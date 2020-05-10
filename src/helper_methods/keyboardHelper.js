@@ -9,6 +9,7 @@ export default class KeyboardHelper {
             } else if (button[s.LEFT_ARROW] === 1) {
                 ship.setRotation(-0.1);
             } else if (button[s.UP_ARROW] === 1) {
+                ship.vel.mult(0.9);
                 ship.boost();
             }
         }
