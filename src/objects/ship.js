@@ -12,7 +12,7 @@ export default class Ship {
 
     update() {
         this.pos.add(this.vel);
-        this.vel.mult(0.96);
+        this.vel.mult(0.95);
     }
 
     boost() {
@@ -40,10 +40,6 @@ export default class Ship {
     }
     hits(asteroid){
         var d = s.dist(this.pos.x, this.pos.y , asteroid.pos.x, asteroid.pos.y);
-        if (d < this.r + asteroid.r){
-            return true;
-        }else {
-            return false;
-        }
+        return d < this.r + asteroid.r;
     }
 }

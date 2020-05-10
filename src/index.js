@@ -4,6 +4,7 @@ import KeyboardHelper from "./helper_methods/keyboardHelper";
 import Asteroids from "./objects/asteroids";
 import Movement from "./helper_methods/movement";
 import Laser from "./objects/laser";
+import laser from "./objects/laser";
 
 const sketch = (p) => {
     var lasers = [];
@@ -28,6 +29,10 @@ const sketch = (p) => {
         for (var i = lasers.length-1; i >=0 ; i--){
             lasers[i].render();
             lasers[i].update();
+            if (Movement.edge(lasers[i],lasers[i].pos)){
+                lasers.splice(i,1);
+                continue;
+            }
             for (var j = asteroids.length-1; j >= 0; j--){
                 if (lasers[i].hits(asteroids[j])){
                     var newAsteroids = asteroids[j].breakUp(asteroids[j].r);
