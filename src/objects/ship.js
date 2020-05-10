@@ -24,7 +24,7 @@ export default class Ship {
         s.push();
         let r = this.r;
         s.translate(this.pos.x, this.pos.y);
-        s.noFill();
+        s.fill(0);
         s.rotate(this.heading + s.PI / 2);
         s.stroke(255);
         s.triangle(-r, r, r, r, 0, -r);
@@ -37,17 +37,5 @@ export default class Ship {
 
     setRotation(angle) {
         this.rotation = angle;
-    }
-
-    edge() {
-        if (this.pos.x > s.width + this.r) {
-            this.pos.x = -this.r;
-        } else if (this.pos.x < -this.r) {
-            this.pos.x = s.width + this.r;
-        } else if (this.pos.y > s.height + this.r) {
-            this.pos.y = -this.r;
-        } else if (this.pos.y < -this.r) {
-            this.pos.y = s.height + this.r;
-        }
     }
 }

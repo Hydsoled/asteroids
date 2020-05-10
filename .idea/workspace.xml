@@ -20,12 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf792cb0-fd79-4668-9119-c0c922c80e8c" name="Default Changelist" comment="Merge branch 'master' of https://github.com/Hydsoled/asteroids&#10;&#10;# Conflicts:&#10;#&#9;src/index.js&#10;#&#9;src/objects/asteroids.js">
-      <change afterPath="$PROJECT_DIR$/src/helper_methods/movement.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/objects/laser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helper_methods/keyboardHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helper_methods/keyboardHelper.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/asteroids.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/asteroids.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/objects/laser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/laser.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/objects/ship.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/objects/ship.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -131,10 +129,10 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="608" y="298" key="MultipleFileMergeDialog/0.0.1440.860@0.0.1440.860" timestamp="1588953641805" />
-    <state x="92" y="92" width="1256" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1588869811182">
+    <state x="92" y="92" width="1256" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1589113197152">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="92" y="92" width="1256" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1440.860@0.0.1440.860" timestamp="1588869811182" />
+    <state x="92" y="92" width="1256" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1440.860@0.0.1440.860" timestamp="1589113197152" />
     <state x="427" y="163" width="585" height="592" key="find.popup" timestamp="1589029128917">
       <screen x="0" y="0" width="1440" height="860" />
     </state>

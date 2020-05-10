@@ -15,4 +15,12 @@ export default class Laser {
         s.point(this.pos.x,this.pos.y);
         s.pop();
     }
+    hits(asteroid){
+        var d = s.dist(this.pos.x, this.pos.y,asteroid.pos.x, asteroid.pos.y);
+        if (d < asteroid.r){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }
