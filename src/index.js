@@ -40,6 +40,11 @@ const sketch = (p) => {
                 }
             }
         }
+        for (var i = asteroids.length -1 ; i>=0; i--){
+            if (ship.hits(asteroids[i])){
+                console.log("you lose");
+            }
+        }
 
         ship.render();
         ship.turn();

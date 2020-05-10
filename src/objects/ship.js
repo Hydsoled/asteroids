@@ -38,4 +38,12 @@ export default class Ship {
     setRotation(angle) {
         this.rotation = angle;
     }
+    hits(asteroid){
+        var d = s.dist(this.pos.x, this.pos.y , asteroid.pos.x, asteroid.pos.y);
+        if (d < this.r + asteroid.r){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }
