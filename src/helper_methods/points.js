@@ -3,7 +3,6 @@ import s from "../index";
 export default class Points {
     constructor(lives,score,ship) {
         this.lives = lives;
-        this.score= score;
         this.ship = ship;
     }
     livesRender(hits,asteroids){
