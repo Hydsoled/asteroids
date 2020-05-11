@@ -2,7 +2,7 @@ import s from "../index";
 
 export default class Asteroids {
     constructor(p5, pos, r) {
-        var radiuses = [12, 25, 50];
+        const radiuses = [12, 25, 50];
         if (pos) {
             this.pos = pos.copy();
         } else {
@@ -11,7 +11,7 @@ export default class Asteroids {
         if (!r){
             this.r = radiuses[Math.floor(Math.random() * 3)];
         }else {
-            var radiusIndex = radiuses.findIndex((element) => element === r);
+            let radiusIndex = radiuses.findIndex((element) => element === r);
             if (radiusIndex===0){
                 return undefined;
             }
@@ -35,7 +35,7 @@ export default class Asteroids {
     }
 
     breakUp(r) {
-        var newAsteroid = [];
+        let newAsteroid = [];
         newAsteroid[0] = new Asteroids(this.p5, this.pos, r);
         newAsteroid[1] = new Asteroids(this.p5, this.pos, r);
         return newAsteroid;

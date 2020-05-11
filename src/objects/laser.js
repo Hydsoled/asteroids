@@ -16,7 +16,7 @@ export default class Laser {
         s.pop();
     }
     hits(asteroid){
-        var d = s.dist(this.pos.x, this.pos.y,asteroid.pos.x, asteroid.pos.y);
+        let d = s.dist(this.pos.x, this.pos.y,asteroid.pos.x, asteroid.pos.y);
         return d < asteroid.r;
     }
 }

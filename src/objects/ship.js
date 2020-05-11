@@ -16,7 +16,7 @@ export default class Ship {
     }
 
     boost() {
-        var force = this.p5.Vector.fromAngle(this.heading);
+        let force = this.p5.Vector.fromAngle(this.heading);
         this.vel.add(force);
     }
 
@@ -39,7 +39,7 @@ export default class Ship {
         this.rotation = angle;
     }
     hits(asteroid){
-        var d = s.dist(this.pos.x, this.pos.y , asteroid.pos.x, asteroid.pos.y);
+        let d = s.dist(this.pos.x, this.pos.y , asteroid.pos.x, asteroid.pos.y);
         return d < this.r + asteroid.r;
     }
 }
