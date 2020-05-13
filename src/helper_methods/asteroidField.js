@@ -33,8 +33,8 @@ export default class AsteroidField {
         }
         return asteroids;
     }
-    static shipMovement(ship, asteroids, keyboardHelper, button, points){
-        if (points.lives === 0) return false;
+    static shipMovement(ship, asteroids, keyboardHelper, button, action){
+        if (action.lives === 0) return false;
         for (let i = asteroids.length -1 ; i>=0; i--){
             if (ship.hits(asteroids[i])){
                 return true;

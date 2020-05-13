@@ -4,7 +4,7 @@ import KeyboardHelper from "./helper_methods/keyboardHelper";
 import Asteroids from "./objects/asteroids";
 import Laser from "./objects/laser";
 import AsteroidField from "./helper_methods/asteroidField";
-import Points from "./helper_methods/points";
+import Action from "./helper_methods/action";
 
 const sketch = (p) => {
     let lasers = [];
@@ -14,7 +14,7 @@ const sketch = (p) => {
     let lives = 3;
     const keyboardHelper = new KeyboardHelper();
     const ship = new Ship(p,p5);
-    const points = new Points(lives,score,ship);
+    const action = new Action(lives,score,ship);
     p.setup = () => {
         p.createCanvas(p.windowWidth-5, p.windowHeight-5);
         for (let i = 0; i < 10; i++){
@@ -28,9 +28,9 @@ const sketch = (p) => {
         let k = asteroids.length;
         asteroids = AsteroidField.laserMovement(asteroids,lasers,score);
         if (k-asteroids.length!==0) score++;
-        let hits = AsteroidField.shipMovement(ship, asteroids, keyboardHelper, button, points);
-        points.livesRender(hits,asteroids);
-        points.scoreRender(score);
+        let hits = AsteroidField.shipMovement(ship, asteroids, keyboardHelper, button, action);
+        action.livesRender(hits,asteroids);
+        action.scoreRender(score);
     };
     p.keyPressed = () => {
         button[p.keyCode] = 1;

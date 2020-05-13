@@ -1,6 +1,6 @@
 import s from "../index";
 
-export default class Points {
+export default class Action {
     constructor(lives,score,ship) {
         this.lives = lives;
         this.ship = ship;
