@@ -7,7 +7,7 @@ export default class Ship {
         this.p5 = p5;
         this.r = 20;
         this.vel = s.createVector(0, 0);
-        this.pos = s.createVector(s.windowWidth / 2, s.windowHeight / 2,);
+        this.pos = s.createVector(s.width / 2, s.height / 2,);
     }
 
     update() {

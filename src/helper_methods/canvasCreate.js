@@ -1,0 +1,51 @@
+import s from "../index"
+
+export default class CanvasCreate {
+    canvasSetup(ship,asteroids) {
+        if (window.innerWidth < 450 && window.innerWidth !== s.width) {
+            s.createCanvas(window.innerWidth - 20, (window.innerWidth - 20) * 1.5);
+            if (ship.r === 20) {
+                ship.r /= 1.4;
+                for (let i = asteroids.length; i >= 0; i--) {
+                    if (asteroids[i]) {
+                        asteroids[i].r /= 1.4;
+                    }
+                }
+            }
+        } else {
+            if (ship.r !== 20) {
+                ship.r *= 1.4;
+                for (let i = asteroids.length; i >= 0; i--) {
+                    if (asteroids[i]) {
+                        asteroids[i].r *= 1.4;
+                    }
+                }
+            }
+            s.createCanvas(450, 600);
+        }
+    }
+
+    canvasRes(ship, asteroids) {
+        if (window.innerWidth < 450 && window.innerWidth !== s.width) {
+            if (ship.r === 20) {
+                ship.r /= 1.4;
+                for (let i = asteroids.length; i >= 0; i--) {
+                    if (asteroids[i]) {
+                        asteroids[i].r /= 1.4;
+                    }
+                }
+            }
+            s.resizeCanvas(window.innerWidth - 20, (window.innerWidth - 20) * 1.5);
+        } else {
+            if (ship.r !== 20) {
+                ship.r *= 1.4;
+                for (let i = asteroids.length; i >= 0; i--) {
+                    if (asteroids[i]) {
+                        asteroids[i].r *= 1.4;
+                    }
+                }
+            }
+            s.resizeCanvas(450, 600);
+        }
+    }
+}

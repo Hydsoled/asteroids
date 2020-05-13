@@ -11,7 +11,7 @@ export default class Asteroids {
         if (!r){
             this.r = radiuses[Math.floor(Math.random() * 3)];
         }else {
-            let radiusIndex = radiuses.findIndex((element) => element === r);
+            let radiusIndex = radiuses.findIndex((element) => (element === r) || (element === r*1.4));
             if (radiusIndex===0){
                 return undefined;
             }
