@@ -11,7 +11,7 @@ export default class AsteroidField {
         }
     }
 
-    static laserMovement(asteroids, lasers){
+    static laserMovement(asteroids, lasers, ship){
         for (let i = lasers.length-1; i >=0 ; i--){
             lasers[i].render();
             lasers[i].update();
@@ -21,7 +21,7 @@ export default class AsteroidField {
             }
             for (let j = asteroids.length-1; j >= 0; j--){
                 if (lasers[i].hits(asteroids[j])){
-                    let newAsteroids = asteroids[j].breakUp(asteroids[j].r);
+                    let newAsteroids = asteroids[j].breakUp(asteroids[j].r, ship);
                     if (newAsteroids[0]){
                         asteroids = asteroids.concat(newAsteroids);
                     }

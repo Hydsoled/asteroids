@@ -20,14 +20,14 @@ const sketch = (p) => {
     p.setup = () => {
         for (let i = 0; i < 10; i++) {
             asteroids.push(new Asteroids(p5));
-            createCanvas.canvasSetup(ship,asteroids);
         }
+        createCanvas.canvasSetup(ship,asteroids);
     };
     p.draw = () => {
         p.background(0);
         AsteroidField.asteroidMovement(asteroids);
         let k = asteroids.length;
-        asteroids = AsteroidField.laserMovement(asteroids, lasers, score);
+        asteroids = AsteroidField.laserMovement(asteroids, lasers, ship);
         if (k - asteroids.length !== 0) score++;
         let hits = AsteroidField.shipMovement(ship, asteroids, keyboardHelper, button, action);
         action.livesRender(hits, asteroids);

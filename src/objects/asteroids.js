@@ -1,8 +1,8 @@
 import s from "../index";
 
 export default class Asteroids {
-    constructor(p5, pos, r) {
-        const radiuses = [12, 25, 50];
+    constructor(p5, pos, r, ship) {
+        const radiuses = [12.6, 25.2, 50.4];
         if (pos) {
             this.pos = pos.copy();
         } else {
@@ -15,8 +15,9 @@ export default class Asteroids {
             if (radiusIndex===0){
                 return undefined;
             }
-            this.r = radiuses[radiusIndex -1];
+            this.r = radiuses[radiusIndex - 1];
         }
+        if (ship && ship.r !==20) this.r/=1.4;
         this.p5 = p5;
         this.vel = this.p5.Vector.random2D();
     }
@@ -34,10 +35,10 @@ export default class Asteroids {
         this.pos.add(this.vel);
     }
 
-    breakUp(r) {
+    breakUp(r, ship) {
         let newAsteroid = [];
-        newAsteroid[0] = new Asteroids(this.p5, this.pos, r);
-        newAsteroid[1] = new Asteroids(this.p5, this.pos, r);
+        newAsteroid[0] = new Asteroids(this.p5, this.pos, r, ship);
+        newAsteroid[1] = new Asteroids(this.p5, this.pos, r, ship);
         return newAsteroid;
     }
 }
