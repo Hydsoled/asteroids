@@ -6,7 +6,7 @@ export default class CanvasCreate {
     canvasSetup(ship,asteroids) {
         if (window.innerWidth < 450 && window.innerWidth !== s.width) {
             s.createCanvas(window.innerWidth - 5, (window.innerWidth - 5) * 1.5);
-            for (let i = 0; i < 0; i++) {
+            for (let i = 0; i < 5; i++) {
                 asteroids.push(new Asteroids(p5));
             }
             if (ship.r === 20) {
@@ -19,7 +19,7 @@ export default class CanvasCreate {
             }
         } else {
             s.createCanvas(450, 600);
-            for (let i = 0; i < 0; i++) {
+            for (let i = 0; i < 5; i++) {
                 asteroids.push(new Asteroids(p5));
             }
             if (ship.r !== 20) {

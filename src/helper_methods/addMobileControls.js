@@ -10,7 +10,6 @@ export default function addMobileControls(ship, lasers, p5) {
             [Hammer.Swipe, {direction: Hammer.DIRECTION_ALL}]
         ],
     });
-
     hammer.on("tap", () => {
         lasers.push(new Laser(ship.pos, ship.heading, p5));
     });
@@ -21,12 +20,10 @@ export default function addMobileControls(ship, lasers, p5) {
         ship.setRotation(-0.1);
     });
     hammer.on("panend", (el) => {
-        console.log('up');
         ship.setRotation(0);
     });
     hammer.on("panup", (el) => {
         ship.vel.mult(0.9);
         ship.boost();
     });
-
 }
