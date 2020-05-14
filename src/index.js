@@ -1,4 +1,5 @@
 import p5 from "p5";
+import mc from "./helper_methods/addMobileControls";
 import Ship from "./objects/ship";
 import KeyboardHelper from "./helper_methods/keyboardHelper";
 import Asteroids from "./objects/asteroids";
@@ -18,10 +19,8 @@ const sketch = (p) => {
     const action = new Action(lives, score, ship);
     const createCanvas = new CanvasCreate();
     p.setup = () => {
-        for (let i = 0; i < 10; i++) {
-            asteroids.push(new Asteroids(p5));
-        }
         createCanvas.canvasSetup(ship,asteroids);
+        mc(ship,lasers, p5);
     };
     p.draw = () => {
         p.background(0);

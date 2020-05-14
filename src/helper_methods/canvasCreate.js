@@ -1,9 +1,14 @@
 import s from "../index"
+import Asteroids from "../objects/asteroids";
+import p5 from "p5";
 
 export default class CanvasCreate {
     canvasSetup(ship,asteroids) {
         if (window.innerWidth < 450 && window.innerWidth !== s.width) {
-            s.createCanvas(window.innerWidth - 20, (window.innerWidth - 20) * 1.5);
+            s.createCanvas(window.innerWidth - 5, (window.innerWidth - 5) * 1.5);
+            for (let i = 0; i < 0; i++) {
+                asteroids.push(new Asteroids(p5));
+            }
             if (ship.r === 20) {
                 ship.r /= 1.4;
                 for (let i = asteroids.length; i >= 0; i--) {
@@ -13,6 +18,10 @@ export default class CanvasCreate {
                 }
             }
         } else {
+            s.createCanvas(450, 600);
+            for (let i = 0; i < 0; i++) {
+                asteroids.push(new Asteroids(p5));
+            }
             if (ship.r !== 20) {
                 ship.r *= 1.4;
                 for (let i = asteroids.length; i >= 0; i--) {
@@ -21,7 +30,6 @@ export default class CanvasCreate {
                     }
                 }
             }
-            s.createCanvas(450, 600);
         }
     }
 
