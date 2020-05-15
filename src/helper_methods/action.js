@@ -6,7 +6,7 @@ export default class Action {
         this.ship = ship;
         this.score = score;
         this.hits = false;
-        this.blockHit = false;
+        this.blockHit = true;
         this.shipAppear = true;
     }
 

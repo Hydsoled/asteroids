@@ -3,7 +3,15 @@ import Asteroids from "../objects/asteroids";
 import p5 from "p5";
 
 export default class CanvasCreate {
-    canvasSetup(ship, asteroids) {
+    canvasSetup(ship, asteroids,action) {
+        let interaval = setInterval(()=>{
+            action.shipAppear = !action.shipAppear;
+        },100);
+        setTimeout(()=>{
+            action.blockHit = false;
+            action.shipAppear = true;
+            clearInterval(interaval);
+        },3000);
         if (window.innerWidth < 450 && window.innerWidth !== s.width) {
             s.createCanvas(window.innerWidth - 5, (window.innerWidth - 5) * 1.5);
             ship.pos = s.createVector(s.width / 2, s.height / 2);

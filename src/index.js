@@ -19,7 +19,7 @@ const sketch = (p) => {
     const action = new Action(lives, score, ship);
     const createCanvas = new CanvasCreate();
     p.setup = () => {
-        createCanvas.canvasSetup(ship,asteroids);
+        createCanvas.canvasSetup(ship,asteroids,action);
         mc(ship,lasers, p5, action);
     };
     p.draw = () => {
