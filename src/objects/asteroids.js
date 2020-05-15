@@ -3,19 +3,17 @@ import s from "../index";
 export default class Asteroids {
     constructor(p5, pos, r, ship) {
         const radiuses = [12.6, 25.2, 50.4];
+        //checks asteroids is passed
         if (pos) {
             this.pos = pos.copy();
-        } else {
-            this.pos = s.createVector(s.random(s.width), s.random(s.height));
-        }
-        if (!r){
-            this.r = radiuses[Math.floor(Math.random() * 3)];
-        }else {
             let radiusIndex = radiuses.findIndex((element) => (element === r) || (element === r*1.4));
             if (radiusIndex===0){
                 return undefined;
             }
             this.r = radiuses[radiusIndex - 1];
+        } else {
+            this.pos = s.createVector(s.random(s.width), s.random(s.height));
+            this.r = radiuses[Math.floor(Math.random() * 3)];
         }
         if (ship && ship.r !==20) this.r/=1.4;
         this.p5 = p5;

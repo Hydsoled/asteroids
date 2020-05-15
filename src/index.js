@@ -4,7 +4,7 @@ import Ship from "./objects/ship";
 import KeyboardHelper from "./helper_methods/keyboardHelper";
 import Asteroids from "./objects/asteroids";
 import Laser from "./objects/laser";
-import AsteroidField from "./helper_methods/asteroidField";
+import ObjectMovement from "./helper_methods/objectMovement";
 import Action from "./helper_methods/action";
 import CanvasCreate from "./helper_methods/canvasCreate";
 
@@ -24,9 +24,9 @@ const sketch = (p) => {
     };
     p.draw = () => {
         p.background(0);
-        AsteroidField.asteroidMovement(asteroids);
-        asteroids = AsteroidField.laserMovement(asteroids, lasers, ship, action);
-        AsteroidField.shipMovement(ship, asteroids, keyboardHelper, button, action);
+        ObjectMovement.asteroidMovement(asteroids);
+        asteroids = ObjectMovement.laserMovement(asteroids, lasers, ship, action);
+        ObjectMovement.shipMovement(ship, asteroids, keyboardHelper, button, action);
         action.livesRender();
         action.scoreRender();
     };

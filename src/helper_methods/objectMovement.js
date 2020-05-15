@@ -1,8 +1,7 @@
 import Movement from "./movement";
 
-export default class AsteroidField {
+export default class ObjectMovement {
     constructor() {
-        this.blockHit = true;
     }
 
     static asteroidMovement(asteroids) {
@@ -13,6 +12,7 @@ export default class AsteroidField {
         }
     }
 
+    //renders lasers and checks if asteroids is trigger by laser
     static laserMovement(asteroids, lasers, ship, action) {
         for (let i = lasers.length - 1; i >= 0; i--) {
             lasers[i].render();
@@ -37,9 +37,11 @@ export default class AsteroidField {
         return asteroids;
     }
 
+    //renders ship and checks if asteroids is trigger by ship
     static shipMovement(ship, asteroids, keyboardHelper, button, action) {
         if (action.lives === 0) return false;
         for (let i = asteroids.length - 1; i >= 0; i--) {
+            //blink effect start
             if (ship.hits(asteroids[i]) && !action.blockHit) {
                 action.blockHit = true;
                 let interaval = setInterval(()=>{
@@ -52,6 +54,7 @@ export default class AsteroidField {
                 },3000);
                 action.hits = true;
             }
+            //blink effect end
         }
         if (action.shipAppear){
             ship.render();
