@@ -1,7 +1,7 @@
 import hammer from "hammerjs";
 import Laser from "../objects/laser";
 
-export default function addMobileControls(ship, lasers, p5) {
+export default function addMobileControls(ship, lasers, p5, action) {
     const canvasRef = document.querySelector(".p5Canvas");
     let hammer = new Hammer(canvasRef, {
         recognizers: [
@@ -11,7 +11,9 @@ export default function addMobileControls(ship, lasers, p5) {
         ],
     });
     hammer.on("tap", () => {
-        lasers.push(new Laser(ship.pos, ship.heading, p5));
+        if (action.lives > 0){
+            lasers.push(new Laser(ship.pos, ship.heading, p5));
+        }
     });
     hammer.on("panright", (el) => {
         ship.setRotation(0.1);

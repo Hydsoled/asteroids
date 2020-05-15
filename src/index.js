@@ -13,28 +13,26 @@ const sketch = (p) => {
     let asteroids = [];
     let button = [];
     let score = 0;
-    let lives = 15;
+    let lives = 3;
     const keyboardHelper = new KeyboardHelper();
-    const ship = new Ship(p, p5);
+    let ship = new Ship(p, p5);
     const action = new Action(lives, score, ship);
     const createCanvas = new CanvasCreate();
     p.setup = () => {
         createCanvas.canvasSetup(ship,asteroids);
-        mc(ship,lasers, p5);
+        mc(ship,lasers, p5, action);
     };
     p.draw = () => {
         p.background(0);
         AsteroidField.asteroidMovement(asteroids);
-        let k = asteroids.length;
-        asteroids = AsteroidField.laserMovement(asteroids, lasers, ship);
-        if (k - asteroids.length !== 0) score++;
-        let hits = AsteroidField.shipMovement(ship, asteroids, keyboardHelper, button, action);
-        action.livesRender(hits, asteroids);
-        action.scoreRender(score);
+        asteroids = AsteroidField.laserMovement(asteroids, lasers, ship, action);
+        AsteroidField.shipMovement(ship, asteroids, keyboardHelper, button, action);
+        action.livesRender();
+        action.scoreRender();
     };
     p.keyPressed = () => {
         button[p.keyCode] = 1;
-        if (p.keyCode === 32) {
+        if (p.keyCode === 32 && action.lives > 0) {
             lasers.push(new Laser(ship.pos, ship.heading, p5));
         }
     }

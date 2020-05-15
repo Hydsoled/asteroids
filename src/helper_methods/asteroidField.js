@@ -2,49 +2,63 @@ import Movement from "./movement";
 
 export default class AsteroidField {
     constructor() {
+        this.blockHit = true;
     }
-    static asteroidMovement(asteroids){
-        for (let i = 0; i < asteroids.length; i++){
+
+    static asteroidMovement(asteroids) {
+        for (let i = 0; i < asteroids.length; i++) {
             asteroids[i].render();
             asteroids[i].update();
-            Movement.edge(asteroids[i],asteroids[i].pos,asteroids[i].r);
+            Movement.edge(asteroids[i], asteroids[i].pos, asteroids[i].r);
         }
     }
 
-    static laserMovement(asteroids, lasers, ship){
-        for (let i = lasers.length-1; i >=0 ; i--){
+    static laserMovement(asteroids, lasers, ship, action) {
+        for (let i = lasers.length - 1; i >= 0; i--) {
             lasers[i].render();
             lasers[i].update();
-            if (Movement.edge(lasers[i],lasers[i].pos)){
-                lasers.splice(i,1);
+            if (Movement.edge(lasers[i], lasers[i].pos)) {
+                lasers.splice(i, 1);
                 continue;
             }
-            for (let j = asteroids.length-1; j >= 0; j--){
-                if (lasers[i].hits(asteroids[j])){
+            for (let j = asteroids.length - 1; j >= 0; j--) {
+                if (lasers[i].hits(asteroids[j])) {
+                    action.score++;
                     let newAsteroids = asteroids[j].breakUp(asteroids[j].r, ship);
-                    if (newAsteroids[0]){
+                    if (newAsteroids[0]) {
                         asteroids = asteroids.concat(newAsteroids);
                     }
-                    asteroids.splice(j,1);
-                    lasers.splice(i,1);
+                    asteroids.splice(j, 1);
+                    lasers.splice(i, 1);
                     break;
                 }
             }
         }
         return asteroids;
     }
-    static shipMovement(ship, asteroids, keyboardHelper, button, action){
+
+    static shipMovement(ship, asteroids, keyboardHelper, button, action) {
         if (action.lives === 0) return false;
-        for (let i = asteroids.length -1 ; i>=0; i--){
-            if (ship.hits(asteroids[i])){
-                return true;
+        for (let i = asteroids.length - 1; i >= 0; i--) {
+            if (ship.hits(asteroids[i]) && !action.blockHit) {
+                action.blockHit = true;
+                let interaval = setInterval(()=>{
+                    action.shipAppear = !action.shipAppear;
+                },100);
+                setTimeout(()=>{
+                   action.blockHit = false;
+                   action.shipAppear = true;
+                   clearInterval(interaval);
+                },3000);
+                action.hits = true;
             }
         }
-        ship.render();
+        if (action.shipAppear){
+            ship.render();
+        }
         ship.turn();
-        keyboardHelper.keyPress(button,ship);
+        keyboardHelper.keyPress(button, ship);
         ship.update();
-        Movement.edge(ship,ship.pos,ship.r);
-        return false;
+        Movement.edge(ship, ship.pos, ship.r);
     }
 }

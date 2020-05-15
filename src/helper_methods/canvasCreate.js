@@ -3,9 +3,10 @@ import Asteroids from "../objects/asteroids";
 import p5 from "p5";
 
 export default class CanvasCreate {
-    canvasSetup(ship,asteroids) {
+    canvasSetup(ship, asteroids) {
         if (window.innerWidth < 450 && window.innerWidth !== s.width) {
             s.createCanvas(window.innerWidth - 5, (window.innerWidth - 5) * 1.5);
+            ship.pos = s.createVector(s.width / 2, s.height / 2);
             for (let i = 0; i < 5; i++) {
                 asteroids.push(new Asteroids(p5));
             }
@@ -19,6 +20,7 @@ export default class CanvasCreate {
             }
         } else {
             s.createCanvas(450, 600);
+            ship.pos = s.createVector(s.width / 2, s.height / 2);
             for (let i = 0; i < 5; i++) {
                 asteroids.push(new Asteroids(p5));
             }
