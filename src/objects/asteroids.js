@@ -14,8 +14,13 @@ export default class Asteroids {
         } else {
             this.pos = s.createVector(s.random(s.width), s.random(s.height));
             this.r = radiuses[Math.floor(Math.random() * 3)];
+            let k = Math.floor((Math.random()*2));
+            if (k===0) this.pos.x = 0;
+            else this.pos.y = 0;
         }
-        if (ship && ship.r !==20) this.r/=1.4;
+        if (ship && ship.r !==20) {
+            this.r/=1.4;
+        }
         this.p5 = p5;
         this.vel = this.p5.Vector.random2D();
     }
