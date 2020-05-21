@@ -4,9 +4,9 @@ export default class ObjectMovement {
     constructor() {
     }
 
-    static asteroidMovement(asteroids) {
+    static asteroidMovement(asteroids, asset) {
         for (let i = 0; i < asteroids.length; i++) {
-            asteroids[i].render();
+            asteroids[i].render(asset);
             asteroids[i].update();
             Movement.edge(asteroids[i], asteroids[i].pos, asteroids[i].r);
         }
@@ -38,7 +38,7 @@ export default class ObjectMovement {
     }
 
     //renders ship and checks if asteroids is trigger by ship
-    static shipMovement(ship, asteroids, keyboardHelper, button, action) {
+    static shipMovement(ship, asteroids, keyboardHelper, button, action, asset) {
         if (action.lives === 0) return false;
         for (let i = asteroids.length - 1; i >= 0; i--) {
             //blink effect start
@@ -57,7 +57,7 @@ export default class ObjectMovement {
             //blink effect end
         }
         if (action.shipAppear){
-            ship.render();
+            ship.render(asset);
         }
         ship.turn();
         keyboardHelper.keyPress(button, ship);

@@ -20,14 +20,12 @@ export default class Ship {
         this.vel.add(force);
     }
 
-    render() {
+    render(asset) {
         s.push();
         let r = this.r;
         s.translate(this.pos.x, this.pos.y);
-        s.fill(0);
         s.rotate(this.heading + s.PI / 2);
-        s.stroke(255);
-        s.triangle(-r, r, r, r, 0, -r);
+        s.image(asset,-r,-r,r*2,r*2);
         s.pop();
     }
 
@@ -39,7 +37,7 @@ export default class Ship {
         this.rotation = angle;
     }
     hits(asteroid){
-        let d = s.dist(this.pos.x, this.pos.y , asteroid.pos.x, asteroid.pos.y);
-        return d < this.r + asteroid.r;
+        let d = s.dist(this.pos.x, this.pos.y, asteroid.pos.x , asteroid.pos.y);
+        return d < this.r/2 + asteroid.r / 2;
     }
 }

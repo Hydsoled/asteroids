@@ -2,7 +2,7 @@ import s from "../index";
 
 export default class Asteroids {
     constructor(p5, pos, r, ship) {
-        const radiuses = [12.6, 25.2, 50.4];
+        const radiuses = [25.2, 50.4, 100.8];
         //checks asteroids is passed
         if (pos) {
             this.pos = pos.copy();
@@ -25,12 +25,12 @@ export default class Asteroids {
         this.vel = this.p5.Vector.random2D();
     }
 
-    render() {
+    render(asset) {
+        if (!this.r) return;
         s.push();
-        s.noFill();
         s.stroke(255);
         s.translate(this.pos.x, this.pos.y);
-        s.ellipse(0, 0, this.r * 2);
+        s.image(asset,-this.r/2,-this.r/2,this.r, this.r);
         s.pop();
     }
 

@@ -41,13 +41,13 @@ const sketch = (p) => {
             spnTime = setInterval(()=>{
                 asteroidSpawn.spawn(asteroids,p5,ship);
             },spnTimeSec);
-        },10000);
+        },60000);
     };
     p.draw = () => {
         p.background(allAssets.background[img]);
-        ObjectMovement.asteroidMovement(asteroids);
+        ObjectMovement.asteroidMovement(asteroids,allAssets.asteroid[0]);
         asteroids = ObjectMovement.laserMovement(asteroids, lasers, ship, action);
-        ObjectMovement.shipMovement(ship, asteroids, keyboardHelper, button, action);
+        ObjectMovement.shipMovement(ship, asteroids, keyboardHelper, button, action,allAssets.ship[0]);
         action.livesRender();
         action.scoreRender();
     };
@@ -67,9 +67,18 @@ const sketch = (p) => {
     };
     p.preload = () => {
         allAssets.background = [];
+        allAssets.asteroid = [];
+        allAssets.ship = [];
         for (let i = 0; i < assets.background.length; i++){
             allAssets.background.push(s.loadImage(assets.background[i]));
         }
+        for (let i = 0; i < assets.asteroid.length; i++){
+            allAssets.asteroid.push(s.loadImage(assets.asteroid[i]));
+        }
+        allAssets.ship.push(s.loadImage(assets.ship[0]));
+    }
+    p.resetFunction = () =>{
+        asteroids = [];
     }
 };
 const s = new p5(sketch);
