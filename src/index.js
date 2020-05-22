@@ -25,23 +25,7 @@ const sketch = (p) => {
     p.setup = () => {
         createCanvas.canvasSetup(ship,asteroids,action);
         mc(ship,lasers, p5, action);
-        let spnTimeSec = 4000;
-        let spnTime = setInterval(()=>{
-            asteroidSpawn.spawn(asteroids,p5,ship);
-        },spnTimeSec);
-        let timer = setInterval(()=> {
-            if (spnTimeSec>2000) {
-                spnTimeSec-=1000;
-                if (assets.background[img+1]){
-                    img++;
-                }
-            }
-            else if (spnTimeSec>1000) spnTimeSec-=200;
-            clearInterval(spnTime);
-            spnTime = setInterval(()=>{
-                asteroidSpawn.spawn(asteroids,p5,ship);
-            },spnTimeSec);
-        },60000);
+        p.resetFunction();
     };
     p.draw = () => {
         p.background(allAssets.background[img]);
@@ -78,7 +62,24 @@ const sketch = (p) => {
         allAssets.ship.push(s.loadImage(assets.ship[0]));
     }
     p.resetFunction = () =>{
-        asteroids = [];
+        let spnTimeSec = 4000;
+        let spnTime = setInterval(()=>{
+            asteroidSpawn.spawn(asteroids,p5,ship);
+        },spnTimeSec);
+        let timer = setInterval(()=> {
+            if (spnTimeSec>2000) {
+                spnTimeSec-=1000;
+                if (assets.background[img+1]){
+                    img++;
+                }
+            }
+            else if (spnTimeSec>1000) spnTimeSec-=200;
+            clearInterval(spnTime);
+            spnTime = setInterval(()=>{
+                asteroidSpawn.spawn(asteroids,p5,ship);
+            },spnTimeSec);
+        },60000);
+
     }
 };
 const s = new p5(sketch);
