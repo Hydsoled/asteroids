@@ -21,7 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cf792cb0-fd79-4668-9119-c0c922c80e8c" name="Default Changelist" comment="Merge branch 'master' of https://github.com/Hydsoled/asteroids&#10;&#10;# Conflicts:&#10;#&#9;src/index.js&#10;#&#9;src/objects/asteroids.js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/asteroid.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/asteroid.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/helper_methods/canvasCreate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helper_methods/canvasCreate.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +92,8 @@
       <workItem from="1589977694315" duration="3145000" />
       <workItem from="1590066210278" duration="7241000" />
       <workItem from="1590079491020" duration="4045000" />
-      <workItem from="1590157918697" duration="257000" />
+      <workItem from="1590157918697" duration="1233000" />
+      <workItem from="1590237193156" duration="2130000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/Hydsoled/asteroids&#10;&#10;# Conflicts:&#10;#&#9;src/index.js&#10;#&#9;src/objects/asteroids.js">
       <created>1588953705075</created>
@@ -140,10 +141,14 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="608" y="298" key="MultipleFileMergeDialog/0.0.1440.860@0.0.1440.860" timestamp="1588953641805" />
-    <state x="92" y="92" width="1256" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1590072200199">
+    <state x="92" y="92" width="1256" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1590158603855">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
-    <state x="92" y="92" width="1256" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1440.860@0.0.1440.860" timestamp="1590072200199" />
+    <state x="92" y="92" width="1256" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1440.860@0.0.1440.860" timestamp="1590158603855" />
+    <state x="529" y="344" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1590158046444">
+      <screen x="0" y="0" width="1440" height="860" />
+    </state>
+    <state x="529" y="344" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.860@0.0.1440.860" timestamp="1590158046444" />
     <state x="427" y="163" width="585" height="592" key="find.popup" timestamp="1590082592266">
       <screen x="0" y="0" width="1440" height="860" />
     </state>
