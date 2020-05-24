@@ -2,13 +2,15 @@ import Movement from "../helper_methods/movement";
 import Laser from "./laser";
 
 export default class LaserSpawn {
-  constructor({ p5 }) {
+  constructor({ p5, action }) {
     this.p5 = p5;
     this.lasers = [];
+    this.action = action;
   }
 
   shoot(ship) {
-    this.lasers.push(new Laser(ship.pos, ship.heading, this.p5));
+    if (this.action.lives > 0)
+      this.lasers.push(new Laser(ship.pos, ship.heading, this.p5));
   }
 
   update(asteroidSpawn, ship, action) {

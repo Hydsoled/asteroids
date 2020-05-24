@@ -38,14 +38,16 @@ export default class Ship {
     this.vel.add(force);
   }
 
-  turn() {
+  // Separate from handleKeyPress because
+  // we need to call this function from mobile touch
+  move(direction) {
     let rotation = 0;
 
-    if (s.keyIsDown(s.RIGHT_ARROW)) {
+    if (direction === "RIGHT") {
       rotation = 0.1;
-    } else if (s.keyIsDown(s.LEFT_ARROW)) {
+    } else if (direction === "LEFT") {
       rotation = -0.1;
-    } else if (s.keyIsDown(s.UP_ARROW)) {
+    } else if (direction === "FORWARD") {
       this.vel.mult(0.9);
       this.boost();
     }
@@ -53,8 +55,14 @@ export default class Ship {
     this.heading += rotation;
   }
 
-  setRotation(angle) {
-    this.rotation = angle;
+  handleKeyPress() {
+    if (s.keyIsDown(s.RIGHT_ARROW)) {
+      this.move("RIGHT");
+    } else if (s.keyIsDown(s.LEFT_ARROW)) {
+      this.move("LEFT");
+    } else if (s.keyIsDown(s.UP_ARROW)) {
+      this.move("FORWARD");
+    }
   }
 
   checkHit(asteroid) {
@@ -65,7 +73,8 @@ export default class Ship {
   update(action) {
     if (action.lives === 0) return false;
 
-    this.turn();
+    this.handleKeyPress();
+
     this.pos.add(this.vel);
     this.vel.mult(0.95);
 

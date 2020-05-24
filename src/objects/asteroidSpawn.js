@@ -2,17 +2,23 @@ import Movement from "../helper_methods/movement";
 import Asteroids from "./asteroid";
 
 export default class AsteroidSpawn {
-  constructor({ p5, ship, allAssets }) {
+  constructor({ p5, ship, action, allAssets }) {
     this.p5 = p5;
     this.allAssets = allAssets;
     this.ship = ship;
+    this.action = action;
+    this.asteroids = [];
+  }
+
+  reset() {
     this.asteroids = [];
   }
 
   spawn() {
-    this.asteroids.push(
-      new Asteroids(this.p5, undefined, undefined, this.ship, this.allAssets)
-    );
+    if (this.action.lives > 0)
+      this.asteroids.push(
+        new Asteroids(this.p5, undefined, undefined, this.ship, this.allAssets)
+      );
   }
 
   checkHit(action, ship) {

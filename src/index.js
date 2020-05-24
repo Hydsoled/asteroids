@@ -1,5 +1,5 @@
 import p5 from "p5";
-import mc from "./helper_methods/addMobileControls";
+import mobileControls from "./helper_methods/addMobileControls";
 import CanvasCreate from "./helper_methods/canvasCreate";
 import Ship from "./objects/ship";
 import Action from "./objects/action";
@@ -17,8 +17,8 @@ const sketch = (p) => {
   const ship = new Ship({ p, p5, allAssets });
   const action = new Action({ lives, ship });
   const createCanvas = new CanvasCreate();
-  const asteroidSpawn = new AsteroidSpawn({ p5, ship, allAssets });
-  const laserSpawn = new LaserSpawn({ p5, ship, allAssets });
+  const asteroidSpawn = new AsteroidSpawn({ p5, ship, action, allAssets });
+  const laserSpawn = new LaserSpawn({ p5, ship, action, allAssets });
 
   p.preload = () => {
     allAssets.background = [];
@@ -42,13 +42,12 @@ const sketch = (p) => {
       ship.r /= 1.4;
     } else s.createCanvas(450, 600);
 
-    mc(ship, lasers, p5, action);
+    mobileControls(ship, laserSpawn, p5, action);
 
     p.resetGame();
   };
 
   p.draw = () => {
-    console.log(img);
     p.background(allAssets.background[img]);
 
     laserSpawn.update(asteroidSpawn, ship, action);
@@ -60,8 +59,8 @@ const sketch = (p) => {
     ship.update(action);
     ship.render(action);
 
-    action.livesRender();
-    action.scoreRender();
+    action.update();
+    action.render();
   };
 
   p.keyPressed = () => {
@@ -79,8 +78,14 @@ const sketch = (p) => {
 
   p.resetGame = () => {
     img = 0;
+
+    function updateBackground() {
+      if (allAssets.background[img + 1]) img++;
+    }
+
+    asteroidSpawn.reset();
     ship.reset();
-    action.reset(asteroidSpawn, allAssets, img);
+    action.reset(asteroidSpawn, updateBackground);
   };
 };
 
