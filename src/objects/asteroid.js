@@ -1,12 +1,12 @@
 import s from "../index";
 
 export default class Asteroids {
-  constructor(p5, pos, r, ship, allAssets) {
+  constructor(p5, ship, allAssets, pos, r) {
     this.allAssets = allAssets;
 
     const radiuses = [25.2, 50.4, 100.8];
 
-    //checks asteroids is passed
+    // checks asteroids is passed
     if (pos) {
       this.pos = pos.copy();
       let radiusIndex = radiuses.findIndex(
@@ -36,8 +36,8 @@ export default class Asteroids {
 
   breakUp(r, ship) {
     let newAsteroid = [];
-    newAsteroid[0] = new Asteroids(this.p5, this.pos, r, ship, this.allAssets);
-    newAsteroid[1] = new Asteroids(this.p5, this.pos, r, ship, this.allAssets);
+    newAsteroid[0] = new Asteroids(this.p5, ship, this.allAssets, this.pos, r);
+    newAsteroid[1] = new Asteroids(this.p5, ship, this.allAssets, this.pos, r);
     return newAsteroid;
   }
 

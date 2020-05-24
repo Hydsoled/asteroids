@@ -16,9 +16,7 @@ export default class AsteroidSpawn {
 
   spawn() {
     if (this.action.lives > 0)
-      this.asteroids.push(
-        new Asteroids(this.p5, undefined, undefined, this.ship, this.allAssets)
-      );
+      this.asteroids.push(new Asteroids(this.p5, this.ship, this.allAssets));
   }
 
   checkHit(action, ship) {
