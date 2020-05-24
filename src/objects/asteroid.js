@@ -1,8 +1,11 @@
 import s from "../index";
 
 export default class Asteroids {
-  constructor(p5, pos, r, ship) {
+  constructor(p5, pos, r, ship, allAssets) {
+    this.allAssets = allAssets;
+
     const radiuses = [25.2, 50.4, 100.8];
+
     //checks asteroids is passed
     if (pos) {
       this.pos = pos.copy();
@@ -27,25 +30,29 @@ export default class Asteroids {
     this.vel = this.p5.Vector.random2D();
   }
 
-  render(asset) {
-    if (!this.r) return;
-    s.push();
-    s.stroke(255);
-    s.translate(this.pos.x, this.pos.y);
-    s.image(asset, -this.r / 2, -this.r / 2, this.r, this.r);
-    s.pop();
-  }
-
-  checkHit() {}
-
   update() {
     this.pos.add(this.vel);
   }
 
   breakUp(r, ship) {
     let newAsteroid = [];
-    newAsteroid[0] = new Asteroids(this.p5, this.pos, r, ship);
-    newAsteroid[1] = new Asteroids(this.p5, this.pos, r, ship);
+    newAsteroid[0] = new Asteroids(this.p5, this.pos, r, ship, this.allAssets);
+    newAsteroid[1] = new Asteroids(this.p5, this.pos, r, ship, this.allAssets);
     return newAsteroid;
+  }
+
+  render() {
+    if (!this.r) return;
+    s.push();
+    s.stroke(255);
+    s.translate(this.pos.x, this.pos.y);
+    s.image(
+      this.allAssets.asteroid[0],
+      -this.r / 2,
+      -this.r / 2,
+      this.r,
+      this.r
+    );
+    s.pop();
   }
 }

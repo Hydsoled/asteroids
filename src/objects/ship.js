@@ -1,23 +1,22 @@
+import Movement from "../helper_methods/movement";
 import s from "../index";
 
 export default class Ship {
-  constructor(s, p5, assets) {
-    this.heading = s.PI / 2;
+  constructor({ p, p5, allAssets }) {
+    this.heading = p.PI / 2;
     this.rotation = 0;
     this.p5 = p5;
     this.r = 20;
-    this.vel = s.createVector(0, 0);
-    this.pos = s.createVector(s.windowWidth / 2, s.windowHeight / 2);
-
+    this.vel = p.createVector(0, 0);
+    this.pos = p.createVector(p.windowWidth / 2, p.windowHeight / 2);
     this.invincible = false;
     this.appear = true;
-    this.assets = assets;
+    this.allAssets = allAssets;
   }
 
   reset() {
-    setTimeout(() => {
-      this.invincible = false;
-    }, 3000);
+    this.respawn();
+    this.pos = s.createVector(s.width / 2, s.height / 2);
   }
 
   respawn() {
@@ -40,7 +39,18 @@ export default class Ship {
   }
 
   turn() {
-    this.heading += this.rotation;
+    let rotation = 0;
+
+    if (s.keyIsDown(s.RIGHT_ARROW)) {
+      rotation = 0.1;
+    } else if (s.keyIsDown(s.LEFT_ARROW)) {
+      rotation = -0.1;
+    } else if (s.keyIsDown(s.UP_ARROW)) {
+      this.vel.mult(0.9);
+      this.boost();
+    }
+
+    this.heading += rotation;
   }
 
   setRotation(angle) {
@@ -52,18 +62,25 @@ export default class Ship {
     return d < this.r / 2 + asteroid.r / 2;
   }
 
-  update() {
+  update(action) {
+    if (action.lives === 0) return false;
+
+    this.turn();
     this.pos.add(this.vel);
     this.vel.mult(0.95);
+
+    Movement.edge(this.pos, this.r);
   }
 
-  render() {
+  render(action) {
+    if (action.lives === 0) return false;
+
     if (this.appear) {
       s.push();
       let r = this.r;
       s.translate(this.pos.x, this.pos.y);
       s.rotate(this.heading + s.PI / 2);
-      s.image(this.assets.ship[0], -r, -r, r * 2, r * 2);
+      s.image(this.allAssets.ship[0], -r, -r, r * 2, r * 2);
       s.pop();
     }
   }
